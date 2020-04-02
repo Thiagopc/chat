@@ -12,9 +12,9 @@ namespace chat.Manager
         }
 
         public string AddSocket(WebSocket socket){
-            string ConnID = Guid.NewGuid().ToString();
-            _sockets.TryAdd(ConnID, socket);
-            return ConnID;
+            var id = Guid.NewGuid().ToString();
+            _sockets.TryAdd(id, socket);
+            return id;
         }
 
         public ConcurrentDictionary<string, WebSocket> GetAllSockets() => _sockets;
